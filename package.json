@@ -3,8 +3,11 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build",
+    "serve": "vue-cli-service serve --mode development",
+    "build": "vue-cli-service build --mode production",
+    "build:xiaozhu": "vue-cli-service build --mode xiaozhu",
+    "serve:longjun": "vue-cli-service serve --mode longjun",
+    "build:analyzer": "vue-cli-service build --mode analyzer",
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
@@ -14,14 +17,18 @@
     "vuex": "^3.4.0"
   },
   "devDependencies": {
+    "@sentry/webpack-plugin": "^1.18.9",
     "@vue/cli-plugin-babel": "~4.5.12",
     "@vue/cli-plugin-eslint": "~4.5.12",
     "@vue/cli-plugin-router": "~4.5.12",
     "@vue/cli-plugin-vuex": "~4.5.12",
     "@vue/cli-service": "~4.5.12",
+    "axios": "^0.27.2",
     "babel-eslint": "^10.1.0",
+    "compression-webpack-plugin": "^1.1.12",
     "eslint": "^6.7.2",
     "eslint-plugin-vue": "^6.2.2",
+    "qs": "^6.11.0",
     "sass": "^1.26.5",
     "sass-loader": "^8.0.2",
     "vue-template-compiler": "^2.6.11"
