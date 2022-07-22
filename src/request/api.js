@@ -1,12 +1,16 @@
-import { from } from "core-js/core/array";
 import { get, post } from "./http";
 
 export const zhuwenshuai = (url, params) => post(url, params);
 export const zhenglongjun = (url, params) => get(url, params);
+// export function login(params) {
+//   return POST(`${baseUrl}/login/doPhoneVerificationCodeLogin`, params);
+// }
+
+export const validate = (params)=>post('/link/validateLinkExpire',params)
 
 /* 
     示例
-    import { zhuwenshuai, zhenglongjun } from "@/request/http";
+    import { zhuwenshuai, zhenglongjun } from "@/request/api";
     methods: {
 
         async zhuwenshuai() {

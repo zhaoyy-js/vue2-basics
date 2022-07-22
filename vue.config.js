@@ -78,16 +78,16 @@ module.exports = {
       errors: false,
     },
     proxy: {
-      "/license-core": {
-        target: "http://172.16.200.110/",
+      "/": {
+        target: "https://fsl.fintify.cn/",
         ws: false,
         changeOrigin: true,
       },
-      "/license-eseal": {
-        target: "http://test-tb.cngongbao.net:2127/",
-        ws: false,
-        changeOrigin: true,
-      },
+      // "/license-eseal": {
+      //   target: "http://test-tb.cngongbao.net:2127/",
+      //   ws: false,
+      //   changeOrigin: true,
+      // },
     },
 
     headers: {

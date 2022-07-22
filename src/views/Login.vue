@@ -5,10 +5,20 @@
 </template>
 
 <script>
+import { validate } from "@/request/api";
 export default {
   name: "Login",
   methods: {
-    login() {
+    async login() {
+      try {
+        let params = {
+          linkToken: "dasdasdasdas",
+        };
+        const res = await validate(params);
+        console.log(res);
+      } catch (error) {
+        console.log(error);
+      }
       window.sessionStorage.setItem("token", "登录成功");
       this.$router.replace({
         path: "/home",

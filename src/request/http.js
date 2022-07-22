@@ -14,7 +14,7 @@ import QS from "qs";
 const ENV = process.env.NODE_ENV; //保存当前环境
 switch (ENV) {
   case "development":
-    axios.defaults.baseURL = "https://www.baidu.com";
+    axios.defaults.baseURL = "/yrm-web-backend";
     break;
   case "xiaozhu":
     axios.defaults.baseURL = "https://www.xiaozhu.com";
@@ -62,6 +62,7 @@ axios.interceptors.request.use(
 // 响应拦截器
 axios.interceptors.response.use(
   (response) => {
+    console.log(response,'response');
     if (response.status === 200) {
       return Promise.resolve(response);
     } else {
