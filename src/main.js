@@ -5,6 +5,7 @@ import store from './store'
 
 
 Vue.config.productionTip = false
+Vue.prototype.$log = window.console.log // 调试模板
 
 new Vue({
   router,

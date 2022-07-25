@@ -3,6 +3,7 @@
     <router-view />
     <div>{{ address }}</div>
     <div>{{ linkUrl }}</div>
+    <div>{{ $log(env) }}</div>
     <img src="@assets/03.jpg" alt="" />
   </div>
 </template>
@@ -14,6 +15,7 @@ export default {
     return {
       address: process.env.VUE_APP_DEMO,
       linkUrl: process.env.VUE_APP_BASE_URL_APIURL,
+      env: process.env,
     };
   },
   components: {},
