@@ -1,21 +1,17 @@
 import { get, post } from "./http";
 
-export const zhuwenshuai = (url, params) => post(url, params);
-export const zhenglongjun = (url, params) => get(url, params);
-// export function login(params) {
-//   return POST(`${baseUrl}/login/doPhoneVerificationCodeLogin`, params);
-// }
-
+export const getToken = (params) => get('/link/token', params);
 export const validate = (params)=>post('/link/validateLinkExpire',params)
 
 /* 
     示例
-    import { zhuwenshuai, zhenglongjun } from "@/request/api";
+    import { getToken, validate } from "@/request/api";
     methods: {
 
-        async zhuwenshuai() {
+        async getToken() {
+            let params = {}
             try {
-                let res = await zhuwenshuai("/login",params)
+                let res = await getToken(params)
                 console.log(res,'res')
             } catch (error) {
                 这里捕获的error.message，是上层promise 封装抛出来的，具体提示字段要跟你们后台约定
@@ -23,9 +19,10 @@ export const validate = (params)=>post('/link/validateLinkExpire',params)
             }
         }
 
-        async zhenglongjun() {
+        async validate() {
+            let params = {}
             try {
-                let res = await zhenglongjun("/login",params)
+                let res = await validate(params)
                 console.log(res,'res')
             } catch (error) {
                 这里捕获的error.message，是上层promise 封装抛出来的，具体提示字段要跟你们后台约定
