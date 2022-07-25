@@ -73,6 +73,9 @@ module.exports = {
     }
   },
   devServer: {
+    historyApiFallback: {
+      index: "/index.html", //与output的publicPath
+    },
     overlay: {
       warnings: false,
       errors: false,
@@ -83,11 +86,6 @@ module.exports = {
         ws: false,
         changeOrigin: true,
       },
-      // "/license-eseal": {
-      //   target: "http://test-tb.cngongbao.net:2127/",
-      //   ws: false,
-      //   changeOrigin: true,
-      // },
     },
 
     headers: {
