@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <router-view />
-    <div>{{ address }}</div>
+    <!-- <div>{{ address }}</div>
     <div>{{ linkUrl }}</div>
     <div>{{ $log(env) }}</div>
     <div>token:{{ token }}</div>
@@ -17,7 +17,7 @@
     <div class="roleInfo">
       <p class="roleInfo__btn" @click="changeActions">actions</p>
       <p>{{ roleInfo.role }}</p>
-    </div>
+    </div> -->
   </div>
 </template>
 

@@ -10,16 +10,16 @@ export default {
   name: "Login",
   methods: {
     async login() {
-      try {
-        let params = {
-          linkToken: "dasdasdasdas",
-        };
-        const res = await validate(params);
-        console.log(res);
-      } catch (error) {
-        console.log(error);
-      }
-      window.sessionStorage.setItem("token", "登录成功");
+      // try {
+      //   let params = {
+      //     linkToken: "dasdasdasdas",
+      //   };
+      //   const res = await validate(params);
+      //   console.log(res);
+      // } catch (error) {
+      //   console.log(error);
+      // }
+      // window.sessionStorage.setItem("token", "登录成功");
       this.$router.replace({
         path: "/home",
       });

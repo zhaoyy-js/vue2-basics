@@ -1,378 +1,230 @@
 <template>
-  <div class="home">
-    <el-form ref="form" inline label-width="80px">
-      <el-form-item label="一级菜单">
-        <el-select
-          @change="change"
-          v-model="optionsCollection.firstLevel"
-          placeholder="请选择"
+  <section>
+    <div class="wraps">
+      <h1>排行榜</h1>
+      <div class="wraps-box">
+        <img class="picture" src="../assets/girl.jpeg" alt="" />
+      </div>
+      <div class="wraps-header">
+        <span>109</span>
+        <span>locas Yan</span>
+        <span>12</span>
+      </div>
+      <div class="wraps-ranking">
+        <span>排名</span>
+        <span>评分</span>
+      </div>
+      <div class="wraps-between" v-for="item in 6">
+        <span>{{ item }}</span>
+        <div>
+          <img src="../assets/girl.jpeg" alt="" />
+          <span>yasuo</span>
+        </div>
+        <span>48</span>
+      </div>
+    </div>
+
+    <div class="productStar">
+      <h1>积星规则</h1>
+      <div class="productStar-btn">
+        <span
+          v-for="(item, index) in 5"
+          :class="{ active: index === activeIndex }"
+          @mouseover="activeIndex = index"
+          >{{ item }}</span
         >
-          <el-option
-            v-for="item in options2"
-            :key="item.value"
-            :label="item.label"
-            :value="item.value"
-          >
-          </el-option>
-        </el-select>
-      </el-form-item>
-
-      <el-form-item label="二级菜单">
-        <el-select
-          @change="change2"
-          v-model="optionsCollection.secondLevel"
-          placeholder="请选择"
-        >
-          <el-option
-            v-for="item in secondLevelData"
-            :key="item.value"
-            :label="item.label"
-            :value="item.value"
-          >
-          </el-option>
-        </el-select>
-      </el-form-item>
-
-      <el-form-item label="三级菜单">
-        <el-select v-model="optionsCollection.levelIII" placeholder="请选择">
-          <el-option
-            v-for="item in levelIIIData"
-            :key="item.value"
-            :label="item.label"
-            :value="item.value"
-          >
-          </el-option>
-        </el-select>
-      </el-form-item>
-    </el-form>
-
-    <div>{{ $log(secondLevelData, "secondLevelData") }}</div>
-    <div>{{ $log(levelIIIData, "levelIIIData") }}</div>
-  </div>
+      </div>
+      <img
+        class="productStar-picture"
+        :style="retSty"
+        :src="mouseoverIndex"
+        alt=""
+      />
+    </div>
+  </section>
 </template>
 
 <script>
 export default {
   name: "Home",
-  components: {},
   data() {
     return {
-      options2: [
-        {
-          value: "zhinan",
-          label: "指南",
-          children: [
-            {
-              value: "shejiyuanze",
-              label: "设计原则",
-              children: [
-                {
-                  value: "yizhi",
-                  label: "一致",
-                },
-                {
-                  value: "fankui",
-                  label: "反馈",
-                },
-                {
-                  value: "xiaolv",
-                  label: "效率",
-                },
-                {
-                  value: "kekong",
-                  label: "可控",
-                },
-              ],
-            },
-            {
-              value: "daohang",
-              label: "导航",
-              children: [
-                {
-                  value: "cexiangdaohang",
-                  label: "侧向导航",
-                },
-                {
-                  value: "dingbudaohang",
-                  label: "顶部导航",
-                },
-              ],
-            },
-          ],
-        },
-        {
-          value: "zujian",
-          label: "组件",
-          children: [
-            {
-              value: "basic",
-              label: "Basic",
-              children: [
-                {
-                  value: "layout",
-                  label: "Layout 布局",
-                },
-                {
-                  value: "color",
-                  label: "Color 色彩",
-                },
-                {
-                  value: "typography",
-                  label: "Typography 字体",
-                },
-                {
-                  value: "icon",
-                  label: "Icon 图标",
-                },
-                {
-                  value: "button",
-                  label: "Button 按钮",
-                },
-              ],
-            },
-            {
-              value: "form",
-              label: "Form",
-              children: [
-                {
-                  value: "radio",
-                  label: "Radio 单选框",
-                },
-                {
-                  value: "checkbox",
-                  label: "Checkbox 多选框",
-                },
-                {
-                  value: "input",
-                  label: "Input 输入框",
-                },
-                {
-                  value: "input-number",
-                  label: "InputNumber 计数器",
-                },
-                {
-                  value: "select",
-                  label: "Select 选择器",
-                },
-                {
-                  value: "cascader",
-                  label: "Cascader 级联选择器",
-                },
-                {
-                  value: "switch",
-                  label: "Switch 开关",
-                },
-                {
-                  value: "slider",
-                  label: "Slider 滑块",
-                },
-                {
-                  value: "time-picker",
-                  label: "TimePicker 时间选择器",
-                },
-                {
-                  value: "date-picker",
-                  label: "DatePicker 日期选择器",
-                },
-                {
-                  value: "datetime-picker",
-                  label: "DateTimePicker 日期时间选择器",
-                },
-                {
-                  value: "upload",
-                  label: "Upload 上传",
-                },
-                {
-                  value: "rate",
-                  label: "Rate 评分",
-                },
-                {
-                  value: "form",
-                  label: "Form 表单",
-                },
-              ],
-            },
-            {
-              value: "data",
-              label: "Data",
-              children: [
-                {
-                  value: "table",
-                  label: "Table 表格",
-                },
-                {
-                  value: "tag",
-                  label: "Tag 标签",
-                },
-                {
-                  value: "progress",
-                  label: "Progress 进度条",
-                },
-                {
-                  value: "tree",
-                  label: "Tree 树形控件",
-                },
-                {
-                  value: "pagination",
-                  label: "Pagination 分页",
-                },
-                {
-                  value: "badge",
-                  label: "Badge 标记",
-                },
-              ],
-            },
-            {
-              value: "notice",
-              label: "Notice",
-              children: [
-                {
-                  value: "alert",
-                  label: "Alert 警告",
-                },
-                {
-                  value: "loading",
-                  label: "Loading 加载",
-                },
-                {
-                  value: "message",
-                  label: "Message 消息提示",
-                },
-                {
-                  value: "message-box",
-                  label: "MessageBox 弹框",
-                },
-                {
-                  value: "notification",
-                  label: "Notification 通知",
-                },
-              ],
-            },
-            {
-              value: "navigation",
-              label: "Navigation",
-              children: [
-                {
-                  value: "menu",
-                  label: "NavMenu 导航菜单",
-                },
-                {
-                  value: "tabs",
-                  label: "Tabs 标签页",
-                },
-                {
-                  value: "breadcrumb",
-                  label: "Breadcrumb 面包屑",
-                },
-                {
-                  value: "dropdown",
-                  label: "Dropdown 下拉菜单",
-                },
-                {
-                  value: "steps",
-                  label: "Steps 步骤条",
-                },
-              ],
-            },
-            {
-              value: "others",
-              label: "Others",
-              children: [
-                {
-                  value: "dialog",
-                  label: "Dialog 对话框",
-                },
-                {
-                  value: "tooltip",
-                  label: "Tooltip 文字提示",
-                },
-                {
-                  value: "popover",
-                  label: "Popover 弹出框",
-                },
-                {
-                  value: "card",
-                  label: "Card 卡片",
-                },
-                {
-                  value: "carousel",
-                  label: "Carousel 走马灯",
-                },
-                {
-                  value: "collapse",
-                  label: "Collapse 折叠面板",
-                },
-              ],
-            },
-          ],
-        },
-        {
-          value: "ziyuan",
-          label: "资源",
-          children: [
-            {
-              value: "axure",
-              label: "Axure Components",
-            },
-            {
-              value: "sketch",
-              label: "Sketch Templates",
-            },
-            {
-              value: "jiaohu",
-              label: "组件交互文档",
-            },
-          ],
-        },
-      ],
-      optionsCollection: {
-        firstLevel: "",
-        secondLevel: "",
-        levelIII: "",
-      },
+      activeIndex: 0,
     };
   },
-  methods: {
-    change() {
-      this.optionsCollection.secondLevel = "";
-      this.optionsCollection.levelIII = "";
-    },
-    change2() {
-      this.optionsCollection.levelIII = "";
-    },
-  },
+
   computed: {
-    secondLevelData() {
-      const {
-        options2,
-        optionsCollection: { firstLevel },
-      } = this;
-
-      if (firstLevel) {
-        const { children } = options2.filter((item) => {
-          return item.value === firstLevel;
-        })[0];
-        return children;
-      } else {
-        return [];
-      }
+    mouseoverIndex() {
+      return require(`../assets/${this.activeIndex + 1}.jpg`);
     },
-
-    levelIIIData() {
-      const {
-        optionsCollection: { secondLevel },
-      } = this;
-      
-      if (secondLevel) {
-        const { children } = this.secondLevelData.filter((item) => {
-          return item.value === secondLevel;
-        })[0];
-        return children;
-      } else {
-        return [];
+    retSty() {
+      const { activeIndex } = this;
+      let obj;
+      switch (activeIndex) {
+        case 0:
+          obj = {
+            width: "792px",
+            height: "389px",
+          };
+          break;
+        case 1:
+          obj = {
+            width: "769px",
+            height: "655px",
+          };
+          break;
+        case 2:
+          obj = {
+            width: "783px",
+            height: "457px",
+          };
+          break;
+        case 3:
+          obj = {
+            width: "763px",
+            height: "313px",
+          };
+          break;
+        case 4:
+          obj = {
+            width: "942px",
+            height: "367px",
+            position: "absolute",
+            top: "128px",
+          };
+          break;
       }
+      return obj;
     },
   },
 };
 </script>
-<style lang="scss"></style>
+
+<style lang="scss" scoped>
+section {
+  background: gray;
+  padding: 20px;
+
+  display: flex;
+  justify-content: space-between;
+}
+.wraps {
+  width: 150px;
+  height: 100%;
+  border-radius: 20px;
+  background: white;
+  padding: 15px 12px;
+
+  h1 {
+    text-align: center;
+    padding: 0;
+    margin: 0;
+  }
+
+  &-box {
+    text-align: center;
+    margin-top: 10px;
+    .picture {
+      width: 100px;
+      height: 100px;
+      object-fit: contain;
+      border-radius: 50%;
+    }
+  }
+
+  &-header {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid gray;
+
+    span:nth-child(1) {
+      color: blue;
+    }
+    span:nth-child(3) {
+      color: blue;
+    }
+  }
+
+  &-ranking {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid gray;
+    padding-top: 20px;
+    span {
+      color: blue;
+    }
+  }
+
+  &-between {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid gray;
+
+    div {
+      display: flex;
+      align-items: center;
+      padding: 10px 0;
+      img {
+        width: 30px;
+        height: 30px;
+        object-fit: contain;
+        border-radius: 50%;
+        margin-right: 10px;
+      }
+    }
+  }
+}
+
+.productStar {
+  width: 760px;
+  height: 80px;
+  border-radius: 20px;
+  background: white;
+  padding: 20px;
+  position: relative;
+
+  h1 {
+    margin: 0;
+    padding: 0;
+    text-align: center;
+  }
+
+  &-btn {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    margin-top: 10px;
+
+    .active {
+      background: blue;
+      border-radius: 20px;
+      color: white;
+    }
+
+    span {
+      flex: 0.2;
+      display: inline-block;
+      text-align: center;
+      padding: 10px;
+      position: relative;
+      cursor: pointer;
+
+      &::before {
+        position: absolute;
+        right: 0;
+        top: 0;
+        content: "";
+        height: 100%;
+        width: 1px;
+
+        background-color: gray;
+      }
+    }
+  }
+
+  &-picture {
+    object-fit: contain;
+  }
+}
+</style>

@@ -26,6 +26,24 @@ const routes = [
     component: () =>
       import(/* webpackChunkName: "about" */ "../views/Home.vue"),
   },
+  {
+    path: "/forms",
+    name: "forms",
+    // route level code-splitting
+    // this generates a separate chunk (about.[hash].js) for this route
+    // which is lazy-loaded when the route is visited.
+    component: () =>
+      import(/* webpackChunkName: "forms" */ "../views/Forms.vue"),
+  },
+  {
+    path: "/EchartDemo",
+    name: "EchartDemo",
+    // route level code-splitting
+    // this generates a separate chunk (about.[hash].js) for this route
+    // which is lazy-loaded when the route is visited.
+    component: () =>
+      import(/* webpackChunkName: "EchartDemo" */ "../views/EchartDemo.vue"),
+  },
 ];
 
 let debug = process.env.NODE_ENV !== "production";
@@ -54,26 +72,26 @@ const router = new VueRouter({
   },
 });
 
-router.beforeEach((to, from, next) => {
-  const resToken = window.sessionStorage.getItem("token");
-  if (resToken) {
-    //toekn存在
-    if (to.path === "/login") {
-      //token存在，并且是login页面
-      next("/");
-    } else {
-      //token存在，不是login页面
-      next({ replace: true });
-    }
-  } else {
-    if (to.path == "/login") {
-      //token不存在，并且是login页面
-      next();
-    } else {
-      //token不存在，不是login页面
-      next("/login");
-    }
-  }
-});
+// router.beforeEach((to, from, next) => {
+//   const resToken = window.sessionStorage.getItem("token");
+//   if (resToken) {
+//     //toekn存在
+//     if (to.path === "/login") {
+//       //token存在，并且是login页面
+//       next("/");
+//     } else {
+//       //token存在，不是login页面
+//       next({ replace: true });
+//     }
+//   } else {
+//     if (to.path == "/login") {
+//       //token不存在，并且是login页面
+//       next();
+//     } else {
+//       //token不存在，不是login页面
+//       next("/login");
+//     }
+//   }
+// });
 
 export default router;
