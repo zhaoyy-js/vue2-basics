@@ -41,15 +41,21 @@
         alt=""
       />
     </div>
+
+    <div>
+      {{ timeDemo }}
+    </div>
   </section>
 </template>
 
 <script>
+import Moment from "moment";
 export default {
   name: "Home",
   data() {
     return {
       activeIndex: 0,
+      timeDemo: Moment(new Date()).format("YYYY-MM-DD HH:mm:ss"),
     };
   },
 

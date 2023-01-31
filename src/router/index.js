@@ -36,6 +36,15 @@ const routes = [
       import(/* webpackChunkName: "forms" */ "../views/Forms.vue"),
   },
   {
+    path: "/basicsTable",
+    name: "basicsTable",
+    // route level code-splitting
+    // this generates a separate chunk (about.[hash].js) for this route
+    // which is lazy-loaded when the route is visited.
+    component: () =>
+      import(/* webpackChunkName: "forms" */ "../views/basicsTable"),
+  },
+  {
     path: "/EchartDemo",
     name: "EchartDemo",
     // route level code-splitting
@@ -43,6 +52,24 @@ const routes = [
     // which is lazy-loaded when the route is visited.
     component: () =>
       import(/* webpackChunkName: "EchartDemo" */ "../views/EchartDemo.vue"),
+  },
+  {
+    path: "/vTable",
+    name: "vTable",
+    // route level code-splitting
+    // this generates a separate chunk (about.[hash].js) for this route
+    // which is lazy-loaded when the route is visited.
+    component: () =>
+      import(/* webpackChunkName: "EchartDemo" */ "../views/vTable/index.vue"),
+  },
+  {
+    path: "/vTabs",
+    name: "vTabs",
+    // route level code-splitting
+    // this generates a separate chunk (about.[hash].js) for this route
+    // which is lazy-loaded when the route is visited.
+    component: () =>
+      import(/* webpackChunkName: "EchartDemo" */ "../views/vTabs/index.vue"),
   },
 ];
 
