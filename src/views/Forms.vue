@@ -48,6 +48,8 @@
         <el-button @click="resetForm('dynamicValidateForm')">重置</el-button>
       </el-form-item>
     </el-form>
+
+    <my-button autoLoading isDebounce @click="searchHandler"></my-button>
   </div>
 </template>
 
@@ -71,6 +73,13 @@ export default {
     };
   },
   methods: {
+    searchHandler(done) {
+      console.log(1);
+      // 模拟异步状态
+      setTimeout(() => {
+        done(); //结束按钮loading状态
+      }, 2000);
+    },
     handlerChange() {
       if (this.radio == 3) {
         this.dynamicValidateForm = {};
