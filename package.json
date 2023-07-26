@@ -4,9 +4,10 @@
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
+    "serve:longjun": "vue-cli-service serve --mode longjun",
+    "serve:xiaozhu": "vue-cli-service serve --mode xiaozhu",
     "build": "vue-cli-service build",
     "build:xiaozhu": "vue-cli-service build --mode xiaozhu",
-    "serve:longjun": "vue-cli-service serve --mode longjun",
     "build:analyzer": "vue-cli-service build --mode analyzer",
     "lint": "vue-cli-service lint"
   },

@@ -33,7 +33,7 @@ switch (ENV) {
 axios.defaults.timeout = 10000;
 
 /* 
-    设置默认请求头
+    设置post请求头
 */
 axios.defaults.headers.post["Content-Type"] =
   "application/x-www-form-urlencoded;charset=UTF-8";

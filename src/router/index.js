@@ -5,71 +5,15 @@ Vue.use(VueRouter);
 
 const routes = [
   {
-    path: "/",
-    redirect: "/login",
-  },
-  {
     path: "/login",
     name: "login",
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
     component: () =>
       import(/* webpackChunkName: "about" */ "../views/Login/index.vue"),
   },
   {
-    path: "/home",
+    path: "/",
     name: "home",
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () =>
-      import(/* webpackChunkName: "about" */ "../views/Home.vue"),
-  },
-  {
-    path: "/forms",
-    name: "forms",
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () =>
-      import(/* webpackChunkName: "forms" */ "../views/Forms.vue"),
-  },
-  {
-    path: "/basicsTable",
-    name: "basicsTable",
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () =>
-      import(/* webpackChunkName: "forms" */ "../views/basicsTable"),
-  },
-  {
-    path: "/EchartDemo",
-    name: "EchartDemo",
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () =>
-      import(/* webpackChunkName: "EchartDemo" */ "../views/EchartDemo.vue"),
-  },
-  {
-    path: "/vTable",
-    name: "vTable",
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () =>
-      import(/* webpackChunkName: "EchartDemo" */ "../views/vTable/index.vue"),
-  },
-  {
-    path: "/vTabs",
-    name: "vTabs",
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () =>
-      import(/* webpackChunkName: "EchartDemo" */ "../views/vTabs/index.vue"),
+    component: () => import(/* webpackChunkName: "home" */ "../views/Home.vue"),
   },
 ];
 
@@ -90,7 +34,6 @@ const router = new VueRouter({
   strict: debug,
   base: process.env.BASE_URL,
   routes,
-  // 切换路由后滚动条置顶
   scrollBehavior() {
     return {
       x: 0,
@@ -98,27 +41,4 @@ const router = new VueRouter({
     };
   },
 });
-
-// router.beforeEach((to, from, next) => {
-//   const resToken = window.sessionStorage.getItem("token");
-//   if (resToken) {
-//     //toekn存在
-//     if (to.path === "/login") {
-//       //token存在，并且是login页面
-//       next("/");
-//     } else {
-//       //token存在，不是login页面
-//       next({ replace: true });
-//     }
-//   } else {
-//     if (to.path == "/login") {
-//       //token不存在，并且是login页面
-//       next();
-//     } else {
-//       //token不存在，不是login页面
-//       next("/login");
-//     }
-//   }
-// });
-
 export default router;

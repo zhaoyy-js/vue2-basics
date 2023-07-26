@@ -22,3 +22,8 @@ yarn lint
 
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
+
+
+#### vue2 环境搭建
+https://blog.csdn.net/weixin_42666092/article/details/117828366
+
