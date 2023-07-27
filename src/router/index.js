@@ -15,6 +15,12 @@ const routes = [
     name: "home",
     component: () => import(/* webpackChunkName: "home" */ "../views/Home.vue"),
   },
+  {
+    path: "/scssDemo",
+    name: "scssDemo",
+    component: () =>
+      import(/* webpackChunkName: "about" */ "../views/ScssDemo/index.vue"),
+  },
 ];
 
 let debug = process.env.NODE_ENV !== "production";

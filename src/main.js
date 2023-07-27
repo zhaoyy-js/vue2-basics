@@ -8,6 +8,9 @@ import "element-ui/lib/theme-chalk/index.css";
 import "@/assets/style/init.css";
 import Debounce from "@/utils/debounce";
 
+import "@/styles/index.scss";
+import variables from "@/styles/variables.module.scss";
+
 Vue.directive("debounceClick", {
   bind(el, binding, vnode, oldvnode) {},
   inserted: function (el, binding) {
@@ -21,6 +24,7 @@ Vue.directive("debounceClick", {
 Vue.use(ElementUI);
 Vue.component("myButton", myButton);
 
+Vue.prototype.$variables = variables; //挂载scss变量供js使用。
 Vue.config.productionTip = false;
 Vue.prototype.$log = window.console.log; // 调试模板
 
