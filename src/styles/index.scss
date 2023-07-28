@@ -6,3 +6,21 @@
 .l-size {
   font-size: $large-size;
 }
+
+.r-color {
+  color: $sass-color;
+}
+
+@mixin justifyCenter {
+  display: flex;
+  justify-content: center;
+}
+
+@mixin justifyCenter {
+  display: flex;
+  justify-content: center;
+}
+
+@mixin rounded($max, $line, $color) {
+  border: $max $line $color;
+}

@@ -6,6 +6,11 @@
     <div class="box-text l-size">
       从 Sass3.3 开始，可以在同一行中使用最近选择器引用(&)来实现高级选择器
     </div>
+    <div class="mixin">
+      <p>1</p>
+      <p>2</p>
+      <p>3</p>
+    </div>
   </div>
 </template>
 
@@ -22,11 +27,18 @@ export default {
 /* 
    引用css常量
  */
+@import "@/styles/index.scss";
 @import "@/styles/constant.scss";
 .box {
   &-text {
     color: $sass-color;
     margin-top: 10px;
+  }
+
+  p {
+    /* 继承 */
+    @extend .l-size;
+    @extend .r-color;
   }
   .btn {
     display: inline-block;
@@ -43,6 +55,11 @@ export default {
     &:hover {
       color: black;
     }
+  }
+
+  .mixin {
+    @include justifyCenter;
+    @include rounded(1px,solid,black)
   }
 }
 </style>
