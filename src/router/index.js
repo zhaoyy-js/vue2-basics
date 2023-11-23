@@ -5,7 +5,7 @@ Vue.use(VueRouter);
 
 const routes = [
   {
-    path: "/login",
+    path: "/login/:id",
     name: "login",
     component: () =>
       import(/* webpackChunkName: "about" */ "../views/Login/index.vue"),
@@ -16,10 +16,17 @@ const routes = [
     component: () => import(/* webpackChunkName: "home" */ "../views/Home.vue"),
   },
   {
-    path: "/scssDemo",
+    path: "/scssDemo/:id",
     name: "scssDemo",
     component: () =>
       import(/* webpackChunkName: "about" */ "../views/ScssDemo/index.vue"),
+    props: (route) => ({ id: route.params.id }),
+  },
+  {
+    path: "/eleTable",
+    name: "eleTable",
+    component: () =>
+      import(/* webpackChunkName: "about" */ "../views/eleTable/index.vue"),
   },
 ];
 

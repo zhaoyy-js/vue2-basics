@@ -11,14 +11,24 @@
       <p>2</p>
       <p>3</p>
     </div>
+
+    <div>
+      {{ id }}
+    </div>
   </div>
 </template>
 
 <script>
 export default {
   name: "ScssDemo",
+  props: {
+    id: {
+      type: String | Number,
+    },
+  },
   mounted() {
-    console.log(this.$variables);
+    console.log(this.$route, "$route");
+    // console.log(this.$variables);
   },
 };
 </script>
@@ -59,7 +69,7 @@ export default {
 
   .mixin {
     @include justifyCenter;
-    @include rounded(1px,solid,black)
+    @include rounded(1px, solid, black);
   }
 }
 </style>
